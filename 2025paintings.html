@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2025 paintings | Johnny Nguyen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto Mono', monospace;
+            background: #fff;
+            color: #222;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .sidebar {
+            width: 240px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5em 1.2em 2em 2em;
+            box-sizing: border-box;
+        }
+        .sidebar-title {
+            font-family: 'Raleway', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 1.35em;
+            letter-spacing: 2px;
+            margin-bottom: 2.5em;
+            color: #06498c;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9em;
+        }
+        .sidebar nav a {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1em;
+            color: #444;
+            text-decoration: none;
+            padding: 0.15em 0.3em;
+            transition: color 0.18s;
+        }
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            color: #1a5b9d;
+            background: none;
+        }
+        .main-content {
+            flex: 1;
+            padding: 2.5em 2em 2em 2em;
+        }
+        .main-title {
+            font-size: 1.5em;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            margin-bottom: 1.5em;
+            text-align: left;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.4em 1.2em; /* Smaller gap for a tighter grid */
+            justify-content: start;
+            align-items: start;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+        .gallery-item {
+            display: block;
+            background: #fff;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .gallery-item img {
+            width: 100%;
+            max-width: 260px;
+            height: auto;
+            border-radius: 0;
+            object-fit: contain;
+            display: block;
+            background: #f4f4f4;
+            cursor: pointer;
+        }
+        .gallery-title {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 0.8em;
+        }
+        /* ---- Modal Styles ---- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(255,255,255,0.98); /* Brighter white background */
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.open {
+            display: flex;
+        }
+        .modal-content {
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .modal-img {
+            max-width: 70vw;
+            max-height: 70vh;
+            display: block;
+            margin: 0 auto;
+            border-radius: 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            background: #fff;
+        }
+        .modal-caption {
+            margin-top: 1.2em;
+            color: #222;
+            font-size: 1.06em;
+            font-family: 'Roboto Mono', monospace;
+            opacity: 1;
+            text-align: center;
+            letter-spacing: 0.15px;
+            background: none;
+        }
+        .modal-close {
+            position: fixed;
+            top: 1em; right: 1em;
+            background: none;
+            color: #222;
+            border: none;
+            font-size: 2.2em;
+            font-weight: 400;
+            cursor: pointer;
+            z-index: 2100;
+            padding: 0;
+            line-height: 1;
+        }
+        .modal-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            color: #222;
+            border: none;
+            font-size: 2.4em;
+            cursor: pointer;
+            z-index: 2100;
+            padding: 0 0.1em;
+            line-height: 1;
+            opacity: 0.7;
+            transition: opacity 0.15s;
+        }
+        .modal-arrow:hover { opacity: 1; }
+        .modal-arrow.left { left: -2.5em; }
+        .modal-arrow.right { right: -2.5em; }
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+                max-width: 99vw;
+            }
+        }
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 120px;
+                padding: 1.2em 0.5em 1em 0.5em;
+            }
+            .sidebar-title { font-size: 0.98em; margin-bottom: 1.5em;}
+            .main-content { padding: 1.2em 0.2em; }
+            .main-title { font-size: 1.4em;}
+            .gallery { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <a href="index.html" class="sidebar-title">JOHNNY<br>NGUYEN</a>
+            <nav>
+                <a href="2025paintings.html">2025 paintings</a>
+                <a href="2024paintings.html" class="active">2024 paintings</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </aside>
+        <div class="main-content">
+            <div class="main-title">2025 paintings</div>
+            <div class="gallery" id="gallery">
+                <!-- Gallery Items (add real image paths!) -->
+                <div class="gallery-item" data-title="Tulips" data-caption="<em>Pic 5</em>, 2024.<br>Oil on canvas, 18 x 20 inches.">
+                    <img src="images/pic05.jpg" alt="Pic 5">
+                    <div class="gallery-title"></div>
+                </div>
+                <div class="gallery-item" data-title="Urban Dreams" data-caption="<em>Urban Dreams</em>, 2022.<br>Acrylic on wood, 50 x 70 cm.">
+                    <img src="images/pic01.jpg" alt="Urban Dreams">
+                    <div class="gallery-title"></div>
+                </div>
+                <div class="gallery-item" data-title="Golden Hour" data-caption="<em>Golden Hour</em>, 2024.<br>Watercolor on paper, 30 x 42 cm.">
+                    <img src="images/pic02.jpg" alt="Golden Hour">
+                    <div class="gallery-title"></div>
+                </div>
+                <div class="gallery-item" data-title="Pic 3" data-caption="<em>Pic 3</em>, 2024.<br>Watercolor on paper, 30 x 42 cm.">
+                    <img src="images/pic03.jpg" alt="Pic 3">
+                    <div class="gallery-title"></div>
+                </div>
+                <div class="gallery-item" data-title="Pic 4" data-caption="<em>Pic 4</em>, 2024.<br>Watercolor on paper, 30 x 42 cm.">
+                    <img src="images/pic04.jpg" alt="Pic 4">
+                    <div class="gallery-title"></div>
+                </div>
+                <!-- Add more as needed -->
+            </div>
+        </div>
+    </div>
+    <!-- Modal for images -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <button class="modal-arrow left" id="prevBtn">&#8592;</button>
+            <img src="" alt="" class="modal-img" id="modalImg">
+            <div class="modal-caption" id="modalCaption"></div>
+            <button class="modal-arrow right" id="nextBtn">&#8594;</button>
+        </div>
+    </div>
+    <script>
+        // Modal gallery logic
+        const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+        const galleryImgs = Array.from(document.querySelectorAll('.gallery-item img'));
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modalImg');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeModalBtn = document.getElementById('closeModal');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+        function showModal(index) {
+            const item = galleryItems[index];
+            modalImg.src = item.querySelector('img').src;
+            modalImg.alt = item.getAttribute('data-title');
+            modalCaption.innerHTML = item.getAttribute('data-caption');
+            modal.classList.add('open');
+            currentIndex = index;
+        }
+        function closeModal() {
+            modal.classList.remove('open');
+        }
+        function showPrev() {
+            let prevIndex = (currentIndex === 0) ? galleryItems.length - 1 : currentIndex - 1;
+            showModal(prevIndex);
+        }
+        function showNext() {
+            let nextIndex = (currentIndex === galleryItems.length - 1) ? 0 : currentIndex + 1;
+            showModal(nextIndex);
+        }
+        // Attach modal to only image clicks (not container)
+        galleryImgs.forEach((img, idx) => {
+            img.addEventListener('click', () => showModal(idx));
+        });
+        closeModalBtn.addEventListener('click', closeModal);
+        prevBtn.addEventListener('click', function(e) { e.stopPropagation(); showPrev(); });
+        nextBtn.addEventListener('click', function(e) { e.stopPropagation(); showNext(); });
+        document.addEventListener('keydown', function(e) {
+            if (!modal.classList.contains('open')) return;
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'ArrowRight') showNext();
+            if (e.key === 'Escape') closeModal();
+        });
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+</body>
+</html>

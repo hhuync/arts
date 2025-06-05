@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact | Johnny Nguyen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts: Raleway for title, Roboto Mono for sidebar/text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto Mono', monospace;
+            background: #fff;
+            color: #222;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .sidebar {
+            width: 240px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5em 1.2em 2em 2em;
+            box-sizing: border-box;
+        }
+        .sidebar-title {
+            font-family: 'Raleway', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 1.35em;
+            letter-spacing: 2px;
+            margin-bottom: 2.5em;
+            color: #06498c;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9em;
+        }
+        .sidebar nav a {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1em;
+            color: #444;
+            text-decoration: none;
+            padding: 0.15em 0.3em;
+            transition: color 0.18s;
+            border-radius: 3px;
+        }
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            color: #1a5b9d;
+            background: none;
+        }
+        .main-content {
+            flex: 1;
+            padding: 2.5em 2em 2em 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            font-size: 0.97em;  /* Make main text smaller */
+        }
+        .page-title {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.5em;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin: 0 0 1.1em 0;
+            color: #222;
+            text-align: left;
+        }
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 120px;
+                padding: 1.2em 0.5em 1em 0.5em;
+            }
+            .sidebar-title { font-size: 0.98em; margin-bottom: 1.5em;}
+            .main-content { padding: 1.2em 0.7em; }
+            .page-title { font-size: 1.25em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <a href="index.html" class="sidebar-title">JOHNNY<br>NGUYEN</a>
+            <nav>
+                <a href="2025paintings.html">2025 paintings</a>
+                <a href="2024paintings.html">2024 paintings</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </aside>
+        <div class="main-content">
+            <div class="page-title">Contact</div>
+            <p>
+                For inquiries about available works, commissions, or exhibitions, please email:<br>
+                <b>johnnynguyen0403@email.com</b>
+                <br><br>
+                You can also connect on Instagram: <a href="https://instagram.com/hhuync" target="_blank">@hhuync</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
