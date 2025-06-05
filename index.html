@@ -1,167 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Johnny Nguyen | Art Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Fonts: Raleway for title, Roboto Mono for sidebar/caption -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="manifest" href="site.webmanifest" />
+  <meta charset="UTF-8">
+  <title>Johnny Nguyen | Art Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Googlefonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto Mono', monospace;
-            background: #fff;
-            color: #222;
-        }
-        .container {
-            display: flex;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-        .sidebar {
-            width: 240px;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            padding: 2.5em 1.2em 2em 2em;
-            box-sizing: border-box;
-        }
-        .sidebar-title {
-            font-family: 'Raleway', Arial, sans-serif;
-            font-weight: 600;
-            font-size: 1.35em;
-            letter-spacing: 2px;
-            margin-bottom: 2.5em;
-            color: #06498c;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .sidebar nav {
-            display: flex;
-            flex-direction: column;
-            gap: 0.9em;
-        }
-        .sidebar nav a {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1em;
-            color: #444;
-            text-decoration: none;
-            padding: 0.15em 0.3em;
-            transition: color 0.18s;
-            border-radius: 3px;
-        }
-        .sidebar nav a:hover,
-        .sidebar nav a.active {
-            color: #1a5b9d;
-            background: none;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto Mono', monospace;
+      background: #fff;
+      color: #222;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .sidebar {
+      width: 240px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5em 1.2em 2em 2em;
+      box-sizing: border-box;
+    }
+    .sidebar-title {
+      font-family: 'Raleway', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 1.35em;
+      letter-spacing: 2px;
+      margin-bottom: 2.5em;
+      color: #06498c;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9em;
+    }
+    .sidebar nav a {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1em;
+      color: #444;
+      text-decoration: none;
+      padding: 0.15em 0.3em;
+      transition: color 0.18s;
+      border-radius: 3px;
+    }
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      color: #1a5b9d;
+    }
 
-        .main-content {
-            flex: 1;
-            padding: 3em 2em 2em 2em;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            box-sizing: border-box;
-        }
-        .artwork-row {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 1050px;
-            margin: 0 auto;
-        }
-        .artwork-photo {
-            max-width: 620px;
-            width: 100%;
-            height: auto;
-            border-radius: 0;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-            display: block;
-            background: #faf9f6;
-        }
-        .caption-block {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 1.3em;
-        }
-        .caption, figcaption {
-            max-width: 320px;
-            color: #444;
-            font-size: 1em;
-            font-family: 'Roboto Mono', monospace;
-            opacity: 0.88;
-            text-align: right;
-            letter-spacing: 0.2px;
-            line-height: 1.5;
-            margin: 0;
-            padding-right: 8px;
-            background: none;
-            border: none;
-        }
-        .caption em, figcaption em {
-            font-style: italic;
-            color: #222;
-        }
-        @media (max-width: 950px) {
-            .main-content { padding: 2em 0.3em; }
-            .artwork-row {
-                max-width: 98vw;
-            }
-            .caption-block {
-                justify-content: center;
-                margin-top: 1em;
-            }
-            .caption, figcaption {
-                text-align: center;
-                max-width: 95vw;
-                padding-right: 0;
-            }
-            .artwork-photo { max-width: 98vw; }
-        }
-        @media (max-width: 600px) {
-            .sidebar {
-                width: 120px;
-                padding: 1.2em 0.5em 1em 0.5em;
-            }
-            .sidebar-title { font-size: 0.98em; margin-bottom: 1.5em;}
-            .main-content { padding: 1.2em 0.2em; }
-        }
-    </style>
+    .main-content {
+      flex: 1;
+      padding: 3em 2em 2em 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-sizing: border-box;
+    }
+    .artwork-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .artwork-photo {
+      max-width: 620px;
+      width: 100%;
+      height: auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      background: #faf9f6;
+    }
+    .caption-block {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1.3em;
+    }
+    .caption {
+      max-width: 320px;
+      color: #444;
+      font-size: 1em;
+      font-family: 'Roboto Mono', monospace;
+      opacity: 0.88;
+      text-align: right;
+      line-height: 1.5;
+      margin: 0;
+      padding-right: 8px;
+    }
+    .caption em {
+      font-style: italic;
+      color: #222;
+    }
+
+    /* Hide mobile UI on desktop */
+    @media (min-width: 701px) {
+      .mobile-header,
+      .mobile-nav {
+        display: none;
+      }
+    }
+
+    /* Mobile styles */
+    @media (max-width: 700px) {
+      .sidebar {
+        display: none;
+      }
+      .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 1.2em;
+        background: white;
+        border-bottom: 1px solid #ddd;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.1em;
+        color: #06498c;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      .mobile-title {
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #06498c;
+        text-decoration: none;
+}
+
+      }
+      .hamburger {
+        background: none;
+        border: none;
+        font-size: 1.6em;
+        cursor: pointer;
+        color: #222;
+      }
+
+      .mobile-nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.94);
+        padding-top: 0.8em;
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        pointer-events: none;
+        z-index: 999;
+      }
+      .mobile-nav.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .mobile-nav a {
+        display: block;
+        padding: 0.9em 0;
+        font-size: 1em;
+        color: #444;
+        text-decoration: none;
+      }
+      .mobile-nav a:hover,
+      .mobile-nav a.active {
+        color: #1a5b9d;
+      }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <a href="index.html" class="sidebar-title">JOHNNY<br>NGUYEN</a>
-            <nav>
-                <a href="2025paintings.html">2025 paintings</a>
-                <a href="2024paintings.html">2024 paintings</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </aside>
-        <div class="main-content">
-            <div class="artwork-row">
-                <img src="images/tulips.jpg" alt="Tulips, oil on canvas, 2024" class="artwork-photo">
-                <div class="caption-block">
-                    <figcaption class="caption">
-                        <em>Tulips</em>, 2024.<br>
-                        Oil on canvas, 18 x 20 inches.
-                    </figcaption>
-                </div>
-            </div>
+
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <a href="index.html" class="mobile-title">JOHNNY NGUYEN</a>
+    <button id="menuToggle" class="hamburger">&#9776;</button>
+  </header>
+
+  <!-- Mobile Dropdown Menu -->
+  <nav id="mobileMenu" class="mobile-nav">
+    <a href="2025paintings.html">2025 paintings</a>
+    <a href="2024paintings.html">2024 paintings</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Main Layout -->
+  <div class="container">
+    <aside class="sidebar">
+      <a href="index.html" class="sidebar-title">JOHNNY<br>NGUYEN</a>
+      <nav>
+        <a href="2025paintings.html">2025 paintings</a>
+        <a href="2024paintings.html">2024 paintings</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </aside>
+    <div class="main-content">
+      <div class="artwork-row">
+        <img src="images/tulips.jpg" alt="Tulips, oil on canvas, 2024" class="artwork-photo">
+        <div class="caption-block">
+          <figcaption class="caption">
+            <em>Tulips</em>, 2024.<br>
+            Oil on canvas, 18 x 20 inches.
+          </figcaption>
         </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const toggleBtn = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileMenu');
+
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.contains('open');
+      mobileNav.classList.toggle('open');
+      toggleBtn.innerHTML = isOpen ? '&#9776;' : '&times;';
+    });
+  </script>
+
 </body>
 </html>

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>2024 paintings | Johnny Nguyen</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="manifest" href="site.webmanifest" />
-    <style>
-        body {
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   2024 paintings | Johnny Nguyen
+  </title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&amp;family=Roboto+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Favicons -->
+  <link href="favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
+   <link href="favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="favicon.ico" rel="shortcut icon">
+     <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+     <link href="site.webmanifest" rel="manifest"/>
+     <style>
+      body {
             margin: 0;
             font-family: 'Roboto Mono', monospace;
             background: #fff;
@@ -195,59 +197,190 @@
             .main-title { font-size: 1.4em;}
             .gallery { grid-template-columns: 1fr; }
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <aside class="sidebar">
-            <a href="index.html" class="sidebar-title">JOHNNY<br>NGUYEN</a>
-            <nav>
-                <a href="2025paintings.html">2025 paintings</a>
-                <a href="2024paintings.html" class="active">2024 paintings</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </aside>
-        <div class="main-content">
-            <div class="main-title">2024 paintings</div>
-            <div class="gallery" id="gallery">
-                <!-- Gallery Items (add real image paths!) -->
-                <div class="gallery-item" data-title="Tulips" data-caption="<em>Tulips</em>, 2024.<br>Oil on canvas, 18 x 20 inches.">
-                    <img src="images/tulips.jpg" alt="Tulips">
-                    <div class="gallery-title"></div>
-                </div>
-                <div class="gallery-item" data-title="Urban Dreams" data-caption="<em>Urban Dreams</em>, 2022.<br>Acrylic on wood, 50 x 70 cm.">
-                    <img src="images/pic01.jpg" alt="Urban Dreams">
-                    <div class="gallery-title"></div>
-                </div>
-                <div class="gallery-item" data-title="Golden Hour" data-caption="<em>Golden Hour</em>, 2024.<br>Watercolor on paper, 30 x 42 cm.">
-                    <img src="images/pic02.jpg" alt="Golden Hour">
-                    <div class="gallery-title"></div>
-                </div>
-                <div class="gallery-item" data-title="Pic 3" data-caption="<em>Pic 3</em>, 2024.<br>Watercolor on paper, 30 x 42 cm.">
-                    <img src="images/pic03.jpg" alt="Pic 3">
-                    <div class="gallery-title"></div>
-                </div>
-                <div class="gallery-item" data-title="Pic 4" data-caption="<em>Pic 4</em>, 2024.<br>Watercolor on paper, 30 x 42 cm.">
-                    <img src="images/pic04.jpg" alt="Pic 4">
-                    <div class="gallery-title"></div>
-                </div>
-                <!-- Add more as needed -->
-            </div>
-        </div>
+    
+
+/* === Mobile-only overrides === */
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 1.2em;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1em;
+    color: #06498c;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .mobile-title {
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #06498c;
+    text-decoration: none;
+  }
+
+  .hamburger {
+    background: none;
+    border: none;
+    font-size: 1.6em;
+    cursor: pointer;
+    color: #222;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.94);
+    padding-top: 0.8em;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .mobile-nav.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .mobile-nav a {
+    display: block;
+    padding: 0.9em 0;
+    font-size: 1em;
+    color: #444;
+    text-decoration: none;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav a.active {
+    color: #1a5b9d;
+  }
+
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-item {
+    max-width: 90vw;
+  }
+
+  .gallery-item img {
+    max-width: 100%;
+  }
+
+  .modal-arrow.left {
+    left: -1.6em;
+  }
+
+  .modal-arrow.right {
+    right: -1.6em;
+  }
+}
+
+/* Hide mobile menu on desktop */
+@media (min-width: 701px) {
+  .mobile-header,
+  .mobile-nav {
+    display: none;
+  }
+}
+     </style>
+    </link>
+   </link>
+  </link>
+ </head>
+ <body>
+  <div class="container">
+   <aside class="sidebar">
+    <a class="sidebar-title" href="index.html">
+     JOHNNY
+     <br/>
+     NGUYEN
+    </a>
+    <nav>
+     <a href="2025paintings.html">
+      2025 paintings
+     </a>
+     <a class="active" href="2024paintings.html">
+      2024 paintings
+     </a>
+     <a href="about.html">
+      About
+     </a>
+     <a href="contact.html">
+      Contact
+     </a>
+    </nav>
+   </aside>
+   <div class="main-content">
+    <div class="main-title">
+     2024 paintings
     </div>
-    <!-- Modal for images -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeModal">&times;</button>
-            <button class="modal-arrow left" id="prevBtn">&#8592;</button>
-            <img src="" alt="" class="modal-img" id="modalImg">
-            <div class="modal-caption" id="modalCaption"></div>
-            <button class="modal-arrow right" id="nextBtn">&#8594;</button>
-        </div>
+    <div class="gallery" id="gallery">
+     <!-- Gallery Items (add real image paths!) -->
+     <div class="gallery-item" data-caption="&lt;em&gt;Tulips&lt;/em&gt;, 2024.&lt;br&gt;Oil on canvas, 18 x 20 inches." data-title="Tulips">
+      <img alt="Tulips" src="images/tulips.jpg"/>
+      <div class="gallery-title">
+      </div>
+     </div>
+     <div class="gallery-item" data-caption="&lt;em&gt;Urban Dreams&lt;/em&gt;, 2022.&lt;br&gt;Acrylic on wood, 50 x 70 cm." data-title="Urban Dreams">
+      <img alt="Urban Dreams" src="images/pic01.jpg"/>
+      <div class="gallery-title">
+      </div>
+     </div>
+     <div class="gallery-item" data-caption="&lt;em&gt;Golden Hour&lt;/em&gt;, 2024.&lt;br&gt;Watercolor on paper, 30 x 42 cm." data-title="Golden Hour">
+      <img alt="Golden Hour" src="images/pic02.jpg"/>
+      <div class="gallery-title">
+      </div>
+     </div>
+     <div class="gallery-item" data-caption="&lt;em&gt;Pic 3&lt;/em&gt;, 2024.&lt;br&gt;Watercolor on paper, 30 x 42 cm." data-title="Pic 3">
+      <img alt="Pic 3" src="images/pic03.jpg"/>
+      <div class="gallery-title">
+      </div>
+     </div>
+     <div class="gallery-item" data-caption="&lt;em&gt;Pic 4&lt;/em&gt;, 2024.&lt;br&gt;Watercolor on paper, 30 x 42 cm." data-title="Pic 4">
+      <img alt="Pic 4" src="images/pic04.jpg"/>
+      <div class="gallery-title">
+      </div>
+     </div>
+     <!-- Add more as needed -->
     </div>
-    <script>
-        // Modal gallery logic
+   </div>
+  </div>
+  <!-- Modal for images -->
+  <div class="modal" id="modal">
+   <div class="modal-content">
+    <button class="modal-close" id="closeModal">
+     ×
+    </button>
+    <button class="modal-arrow left" id="prevBtn">
+     ←
+    </button>
+    <img alt="" class="modal-img" id="modalImg" src=""/>
+    <div class="modal-caption" id="modalCaption">
+    </div>
+    <button class="modal-arrow right" id="nextBtn">
+     →
+    </button>
+   </div>
+  </div>
+  <script>
+   // Modal gallery logic
         const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
         const galleryImgs = Array.from(document.querySelectorAll('.gallery-item img'));
         const modal = document.getElementById('modal');
@@ -293,6 +426,6 @@
         modal.addEventListener('click', function(e) {
             if (e.target === modal) closeModal();
         });
-    </script>
-</body>
+  </script>
+ </body>
 </html>
