@@ -197,114 +197,34 @@
             .main-title { font-size: 1.4em;}
             .gallery { grid-template-columns: 1fr; }
         }
-    
-
-/* === Mobile-only overrides === */
-@media (max-width: 700px) {
-  .sidebar {
-    display: none;
-  }
-
-  .mobile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em 1.2em;
-    background: white;
-    border-bottom: 1px solid #ddd;
-    font-family: 'Raleway', sans-serif;
-    font-size: 1.1em;
-    color: #06498c;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  .mobile-title {
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #06498c;
-    text-decoration: none;
-  }
-
-  .hamburger {
-    background: none;
-    border: none;
-    font-size: 1.6em;
-    cursor: pointer;
-    color: #222;
-  }
-
-  .mobile-nav {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.94);
-    padding-top: 0.8em;
-    text-align: center;
-    font-family: 'Roboto Mono', monospace;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
-    pointer-events: none;
-    z-index: 999;
-  }
-
-  .mobile-nav.open {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  .mobile-nav a {
-    display: block;
-    padding: 0.9em 0;
-    font-size: 1em;
-    color: #444;
-    text-decoration: none;
-  }
-
-  .mobile-nav a:hover,
-  .mobile-nav a.active {
-    color: #1a5b9d;
-  }
-
-  .gallery {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .gallery-item {
-    max-width: 90vw;
-  }
-
-  .gallery-item img {
-    max-width: 100%;
-  }
-
-  .modal-arrow.left {
-    left: -1.6em;
-  }
-
-  .modal-arrow.right {
-    right: -1.6em;
-  }
-}
-
-/* Hide mobile menu on desktop */
-@media (min-width: 701px) {
-  .mobile-header,
-  .mobile-nav {
-    display: none;
-  }
-}
      </style>
     </link>
    </link>
   </link>
  </head>
  <body>
+  <header class="mobile-header">
+   <a class="mobile-title" href="index.html">
+    JOHNNY NGUYEN
+   </a>
+   <button class="hamburger" id="menuToggle">
+    ☰
+   </button>
+  </header>
+  <nav class="mobile-nav" id="mobileMenu">
+   <a href="2025paintings.html">
+    2025 paintings
+   </a>
+   <a class="active" href="2024paintings.html">
+    2024 paintings
+   </a>
+   <a href="about.html">
+    About
+   </a>
+   <a href="contact.html">
+    Contact
+   </a>
+  </nav>
   <div class="container">
    <aside class="sidebar">
     <a class="sidebar-title" href="index.html">
@@ -426,6 +346,15 @@
         modal.addEventListener('click', function(e) {
             if (e.target === modal) closeModal();
         });
+  </script>
+  <script>
+   const toggleBtn = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileMenu');
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.contains('open');
+    mobileNav.classList.toggle('open');
+    toggleBtn.innerHTML = isOpen ? '&#9776;' : '&times;';
+  });
   </script>
  </body>
 </html>
