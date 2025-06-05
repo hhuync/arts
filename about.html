@@ -1,120 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About | Johnny Nguyen</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Fonts: Raleway for title, Roboto Mono for sidebar/text -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="manifest" href="site.webmanifest" />
+  <meta charset="UTF-8">
+  <title>About | Johnny Nguyen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto Mono', monospace;
-            background: #fff;
-            color: #222;
-        }
-        .container {
-            display: flex;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-        .sidebar {
-            width: 240px;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            padding: 2.5em 1.2em 2em 2em;
-            box-sizing: border-box;
-        }
-        .sidebar-title {
-            font-family: 'Raleway', Arial, sans-serif;
-            font-weight: 600;
-            font-size: 1.35em;
-            letter-spacing: 2px;
-            margin-bottom: 2.5em;
-            color: #06498c;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .sidebar nav {
-            display: flex;
-            flex-direction: column;
-            gap: 0.9em;
-        }
-        .sidebar nav a {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1em;
-            color: #444;
-            text-decoration: none;
-            padding: 0.15em 0.3em;
-            transition: color 0.18s;
-            border-radius: 3px;
-        }
-        .sidebar nav a:hover,
-        .sidebar nav a.active {
-            color: #1a5b9d;
-            background: none;
-        }
-        .main-content {
-            flex: 1;
-            padding: 2.5em 2em 2em 2em;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            font-size: 0.97em;
-            font-family: 'Roboto Mono', monospace; /* Ensure correct font */
-        }
-        .main-content * {
-            font-family: 'Roboto Mono', monospace; /* Force all children to use it */
-        }
-        .page-title {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1.5em;
-            font-weight: 500;
-            letter-spacing: 2px;
-            margin: 0 0 1.1em 0;
-            color: #222;
-            text-align: left;
-        }
-        @media (max-width: 600px) {
-            .sidebar {
-                width: 120px;
-                padding: 1.2em 0.5em 1em 0.5em;
-            }
-            .sidebar-title { font-size: 0.98em; margin-bottom: 1.5em;}
-            .main-content { padding: 1.2em 0.7em; }
-            .page-title { font-size: 1.25em; }
-        }
-    </style>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto Mono', monospace;
+      background: #fff;
+      color: #222;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .sidebar {
+      width: 240px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5em 1.2em 2em 2em;
+      box-sizing: border-box;
+    }
+    .sidebar-title {
+      font-family: 'Raleway', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 1.35em;
+      letter-spacing: 2px;
+      margin-bottom: 2.5em;
+      color: #06498c;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9em;
+    }
+    .sidebar nav a {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1em;
+      color: #444;
+      text-decoration: none;
+      padding: 0.15em 0.3em;
+      transition: color 0.18s;
+      border-radius: 3px;
+    }
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      color: #1a5b9d;
+    }
+    .main-content {
+      flex: 1;
+      padding: 2.5em 2em 2em 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      font-size: 0.97em;
+    }
+    .main-content * {
+      font-family: 'Roboto Mono', monospace;
+    }
+    .page-title {
+      font-size: 1.5em;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin: 0 0 1.1em 0;
+      color: #222;
+      text-align: left;
+    }
+
+    @media (min-width: 701px) {
+      .mobile-header, .mobile-nav {
+        display: none;
+      }
+    }
+    @media (max-width: 700px) {
+      .container { flex-direction: column; }
+      .sidebar { display: none; }
+      .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 1.2em;
+        background: white;
+        border-bottom: 1px solid #ddd;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.1em;
+        color: #06498c;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      .mobile-title {
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #06498c;
+        text-decoration: none;
+      }
+      .hamburger {
+        background: none;
+        border: none;
+        font-size: 1.6em;
+        cursor: pointer;
+        color: #222;
+      }
+      .mobile-nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.94);
+        padding-top: 0.8em;
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        pointer-events: none;
+        z-index: 999;
+      }
+      .mobile-nav.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .mobile-nav a {
+        display: block;
+        padding: 0.9em 0;
+        font-size: 1em;
+        color: #444;
+        text-decoration: none;
+      }
+      .mobile-nav a:hover,
+      .mobile-nav a.active {
+        color: #1a5b9d;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <a href="index.html" class="sidebar-title">JOHNNY<br>NGUYEN</a>
-            <nav>
-                <a href="2025paintings.html">2025 paintings</a>
-                <a href="2024paintings.html">2024 paintings</a>
-                <a href="about.html" class="active">About</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </aside>
-        <div class="main-content">
-            <div class="page-title">About</div>
-            <p>
-                Johnny is an emerging artist whose recent work explores themes of memory, place, and transformation. Working primarily in oil on canvas, he draws inspiration from daily life, the interplay of light and color, and the emotional resonance of ordinary objects.<br><br>
-                His painting practice is informed by both observation and imagination, creating scenes that feel intimate yet universally accessible. Johnny is currently pursuing his studies in Studio Art and Data Analytics at Dickinson College.
-            </p>
-        </div>
+
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <a href="index.html" class="mobile-title">JOHNNY NGUYEN</a>
+    <button id="menuToggle" class="hamburger">&#9776;</button>
+  </header>
+
+  <!-- Mobile Dropdown Menu -->
+  <nav id="mobileMenu" class="mobile-nav">
+    <a href="2025paintings.html">2025 paintings</a>
+    <a href="2024paintings.html">2024 paintings</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <aside class="sidebar">
+      <a href="index.html" class="sidebar-title">JOHNNY<br>NGUYEN</a>
+      <nav>
+        <a href="2025paintings.html">2025 paintings</a>
+        <a href="2024paintings.html">2024 paintings</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </aside>
+    <div class="main-content">
+      <div class="page-title">About</div>
+      <p>
+        Johnny is an emerging artist whose recent work explores themes of memory, place, and transformation. Working primarily in oil on canvas, he draws inspiration from daily life, the interplay of light and color, and the emotional resonance of ordinary objects.<br><br>
+        His painting practice is informed by both observation and imagination, creating scenes that feel intimate yet universally accessible. Johnny is currently pursuing his studies in Studio Art and Data Analytics at Dickinson College.
+      </p>
     </div>
+  </div>
+
+  <script>
+    // Mobile nav toggle
+    const toggleBtn = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileMenu');
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.contains('open');
+      mobileNav.classList.toggle('open');
+      toggleBtn.innerHTML = isOpen ? '&#9776;' : '&times;';
+    });
+  </script>
 </body>
 </html>
