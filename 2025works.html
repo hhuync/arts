@@ -8,8 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -20,7 +19,7 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Work Sans', sans-serif;
       background: #fff;
       color: #222;
     }
@@ -40,9 +39,9 @@
     .sidebar-title {
       font-family: 'Raleway', Arial, sans-serif;
       font-weight: 600;
-      font-size: 1.35em;
+      font-size: 1.5em;
       letter-spacing: 2px;
-      margin-bottom: 2.5em;
+      margin-bottom: 1.3em;
       color: #06498c;
       text-decoration: none;
       cursor: pointer;
@@ -53,8 +52,8 @@
       gap: 0.9em;
     }
     .sidebar nav a {
-      font-family: 'Roboto Mono', monospace;
-      font-size: 1em;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 0.8em;
       color: #444;
       text-decoration: none;
       padding: 0.15em 0.3em;
@@ -69,7 +68,7 @@
 
     .main-content {
       flex: 1;
-      padding: 2.5em 2em;
+      padding: 4em 4em 2em 4em;
     }
     .main-title {
       font-size: 1.5em;
@@ -77,27 +76,39 @@
       margin-bottom: 1.5em;
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.4em 1.2em;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .gallery-item {
-      flex: 0 1 auto;
+      column-count: 3;
+      column-gap: 1.2em;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* Gallery thumbnail sizes */
-    
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1.2em;
+    }
+
     .gallery-item img {
       width: 100%;
-      max-width: 230px;
       height: auto;
       display: block;
-      margin: 0 auto;
       background: #f4f4f4;
-      cursor: pointer;
+      border-radius: 0;
+    }
+
+    @media (max-width: 700px) {
+      .gallery {
+        column-count: 2;
+        padding: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        column-count: 1;
+      }
     }
 
     .modal {
@@ -208,7 +219,8 @@
         background: rgba(255, 255, 255, 0.94);
         padding-top: 0.8em;
         text-align: center;
-        font-family: 'Roboto Mono', monospace;
+        font-family: 'Work Sans', sans-serif;
+        font-size: 0.8em;
         opacity: 0;
         transform: translateY(-10px);
         transition: opacity 0.25s ease, transform 0.25s ease;
@@ -265,7 +277,7 @@
     </aside>
 
     <div class="main-content">
-      <div class="main-title">2025 works</div>
+      <div class="main-title"></div>
       <div class="gallery" id="gallery">
         <div class="gallery-item" data-title="To be updated" data-caption="<em>To be updated</em>, 2024.<br>">
           <img src="images/pic05.jpg" alt="To be updated" />
