@@ -87,8 +87,11 @@
 
     .gallery-item {
       break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
       margin-bottom: 1.2em;
     }
+
 
     .gallery-item img {
       width: 100%;
@@ -97,6 +100,14 @@
       background: #f4f4f4;
       border-radius: 0;
     }
+
+    @supports (-webkit-hyphens: none) {
+    .gallery-item {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
 
     @media (max-width: 700px) {
       .gallery {
@@ -110,8 +121,6 @@
         column-count: 1;
       }
     }
-
-
 
     .modal {
       display: none;
