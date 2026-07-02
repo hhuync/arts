@@ -16,6 +16,39 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <style>
+    .about-layout {
+  display: flex;
+  gap: 2.5em;
+  align-items: flex-start;
+  max-width: 1100px;
+}
+
+.about-photo {
+  width: 260px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.about-text {
+  max-width: 850px;
+}
+
+@media (max-width: 700px) {
+  .main-content {
+    padding: 2em 1.5em;
+  }
+
+  .about-layout {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  .about-photo {
+    width: 100%;
+    max-width: 320px;
+  }
+}
     body {
       margin: 0;
       font-family: 'Work Sans', sans-serif;
@@ -185,13 +218,20 @@
       </nav>
     </aside>
     <div class="main-content">
-      <div class="page-title">About</div>
-      <p>
-        Johnny is an emerging artist whose recent work explores themes of memory, place, and transformation. Working primarily in oil on canvas, he draws inspiration from daily life, the interplay of light and color, and the emotional resonance of ordinary objects.<br><br>
-        His painting practice is informed by both observation and imagination, creating scenes that feel intimate yet universally accessible. Johnny is currently pursuing his studies in Studio Art and Data Analytics at Dickinson College.
-      </p>
-    </div>
+<div class="about-layout">
+  <img src="images/IMG_2824.jpg" alt="Johnny Nguyen" class="about-photo">
+
+  <div class="about-text">
+    <div class="page-title">About</div>
+    <p>
+      Johnny Nguyen is a Vietnamese artist and data analyst based in New York. Working primarily in painting and installation, his practice explores memory, identity, vulnerability, and transformation through emotionally driven imagery.
+      <br><br>
+      His recent exhibition, <em>Give Up The Ghost</em> (2026), examined the process of releasing emotional attachments and rebuilding one's sense of self. Blending symbolic narratives with intimate visual language, his work invites viewers to reflect on the experiences that shape who they become.
+      <br><br>
+      Alongside his artistic practice, Johnny earned dual bachelor's degrees in Studio Art and Data Analytics from Dickinson College. His background bridges creativity and technology, combining visual storytelling with analytical thinking. Whether developing business intelligence solutions or creating paintings, he is drawn to finding clarity within complexity and transforming information into meaningful experiences.
+    </p>
   </div>
+</div>
 
   <script>
     // Mobile nav toggle
