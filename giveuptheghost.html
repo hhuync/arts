@@ -17,6 +17,32 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <style>
+.catalog-card {
+  break-inside: avoid;
+  margin-bottom: 1.2em;
+}
+
+.catalog-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.catalog-caption {
+  margin-top: 0.35em;
+  text-align: left;
+  font-size: 0.78em;
+  line-height: 1.3;
+}
+
+.catalog-caption a {
+  color: #06498c;
+  text-decoration: none;
+}
+
+.catalog-caption a:hover {
+  text-decoration: underline;
+}
     body {
       margin: 0;
       font-family: 'Work Sans', sans-serif;
@@ -292,11 +318,16 @@
       <div class="main-title"></div>
       
       <div class="gallery" id="gallery">
-        <div class="gallery-item">
-          <a href="https://drive.google.com/file/d/1KldC5FDQ-50sXZNFWV_2-Yktmiw2w-U6/view?usp=sharing" target="_blank">
-        <img src="images/catalog-cover.jpg" alt="Give Up The Ghost Catalog">
-          </a>
-        </div>
+        <div class="gallery-item" data-title="Give Up The Ghost Catalog" data-caption="<em>Give Up The Ghost Catalog</em><br>">
+          <img src="images/catalog-cover.jpg" alt="Give Up The Ghost Catalog">
+      </div>
+      <div class="catalog-caption">
+        <a href="https://drive.google.com/file/d/1KldC5FDQ-50sXZNFWV_2-Yktmiw2w-U6/view?usp=sharing"
+          target="_blank"
+            rel="noopener">
+              Click to view the full exhibition catalog.
+        </a>
+      </div>
         <div class="gallery-item" data-title="Exhibition View" data-caption="<em>Exhibition View</em><br>">
           <img src="images/Trout2026 - Give Up The Ghost-5.jpg" alt="Exhibition View" />
         </div>
