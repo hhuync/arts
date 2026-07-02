@@ -106,7 +106,16 @@
       justify-content: flex-end;
       margin-top: 1.3em;
     }
-
+.featured-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #666;
+  margin: 0 0 2rem;
+  text-align: center;
+}
     /* Artwork Caption */
     .caption {
   max-width: 320px;
@@ -128,14 +137,26 @@
       font-style: italic;
       color: #222;
     }
-    .portfolio-hint {
-  margin-bottom: 2em;
-  margin-top: 0;
-  font-size: 0.8em;
-  color: #555;
-  text-align: center;
-  line-height: 1.5;
-  opacity: 0.85;
+    .slideshow-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.7em;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #c7c7c7;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot.active {
+  background: #06498c;
 }
     /* Hide mobile UI on desktop */
     @media (min-width: 701px) {
@@ -247,11 +268,10 @@
     </aside>
     <div class="main-content">
       <div class="artwork-row">
-        <p class="portfolio-hint">
-    Featured works from my portfolio. Open the menu to explore more paintings.
-  </p>
-  <img id="slideshowImage" src="images/tulips.jpg" alt="Tulips, oil on canvas, 2024" class="artwork-photo">
+        <h2 class="featured-title">Featured Works</h2>
 
+  <img id="slideshowImage" src="images/tulips.jpg" alt="Tulips, oil on canvas, 2024" class="artwork-photo">
+  <div id="slideshowDots" class="slideshow-dots"></div>
   <div class="caption-block">
     <figcaption id="slideshowCaption" class="caption">
       <em>Tulips</em>, 2024.<br>
@@ -300,24 +320,62 @@
   const slideshowImage = document.getElementById('slideshowImage');
   const slideshowCaption = document.getElementById('slideshowCaption');
 
-  setInterval(() => {
+const slideshowDots = document.getElementById('slideshowDots');
+let slideshowInterval;
 
+artworks.forEach((art, index) => {
+  const dot = document.createElement('button');
+  dot.classList.add('dot');
+
+  if (index === 0) {
+    dot.classList.add('active');
+  }
+
+  dot.addEventListener('click', () => {
+    goToArtwork(index);
+    resetSlideshow();
+  });
+
+  slideshowDots.appendChild(dot);
+});
+
+function updateDots() {
+  const dots = document.querySelectorAll('.dot');
+
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentArtwork);
+  });
+}
+
+function goToArtwork(index) {
   slideshowImage.classList.add("fade-out");
   slideshowCaption.classList.add("fade-out");
 
   setTimeout(() => {
-    currentArtwork = (currentArtwork + 1) % artworks.length;
+    currentArtwork = index;
 
     slideshowImage.src = artworks[currentArtwork].src;
     slideshowImage.alt = artworks[currentArtwork].alt;
     slideshowCaption.innerHTML = artworks[currentArtwork].caption;
 
+    updateDots();
+
     slideshowImage.classList.remove("fade-out");
     slideshowCaption.classList.remove("fade-out");
-
   }, 1200);
+}
 
-}, 8000);
+function nextArtwork() {
+  const nextIndex = (currentArtwork + 1) % artworks.length;
+  goToArtwork(nextIndex);
+}
+
+function resetSlideshow() {
+  clearInterval(slideshowInterval);
+  slideshowInterval = setInterval(nextArtwork, 8000);
+}
+
+slideshowInterval = setInterval(nextArtwork, 8000);
 </script>
 
 </body>
