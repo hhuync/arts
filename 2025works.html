@@ -91,12 +91,44 @@
     }
 
     .gallery-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      background: #f4f4f4;
-      border-radius: 0;
-    }
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #f4f4f4;
+  border-radius: 0;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.012);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.modal-img {
+  max-width: 70vw;
+  max-height: 70vh;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+
+  animation: modalFade 0.25s ease;
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
     @supports (-webkit-hyphens: none) {
     .gallery-item {
@@ -305,6 +337,12 @@
         </div>
         <div class="gallery-item" data-title="Studio view: Layers" data-caption="<em>Studio view: Layers</em>, Oil on canvas, 2025.<br>">
           <img src="images/IMG_6539.jpg" alt="Studio view: Layers" />
+        </div>
+        <div class="gallery-item" data-title="Studio view: Cocktail" data-caption="<em>Studio view: Cocktail</em>, Acrylic on canvas, 2025.<br>">
+          <img src="images/Johnny Nguyen-31.jpg" alt="Studio view: Cocktail" />
+        </div>
+        <div class="gallery-item" data-title="Studio view: Dreams Aren't Supposed To Crush Me" data-caption="<em>Studio view: Dreams Aren't Supposed To Crush Me</em>, Acrylic on canvas, 2025.<br>">
+          <img src="images/Johnny Nguyen-10.jpg" alt="Studio view: Dreams Aren't Supposed To Crush Me" />
         </div>
         <div class="gallery-item" data-title="Morgan Field" data-caption="<em>Morgan Field</em>, Oil on canvas, 2025.<br>">
           <img src="images/IMG_3818.JPG" alt="Morgan Field" />

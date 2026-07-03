@@ -94,12 +94,44 @@
 
 
     .gallery-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      background: #f4f4f4;
-      border-radius: 0;
-    }
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #f4f4f4;
+  border-radius: 0;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.012);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.modal-img {
+  max-width: 70vw;
+  max-height: 70vh;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+
+  animation: modalFade 0.25s ease;
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
     @supports (-webkit-hyphens: none) {
     .gallery-item {
@@ -300,19 +332,22 @@
         <div class="gallery-item" data-title="Memento Mori" data-caption="<em>Memento Mori</em>, 2024.<br>Pastel on paper, 18 x 24 inches.">
           <img src="images/memento.jpg" alt="Memento Mori" />
         </div>
-        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas">
+        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas.">
           <img src="images/IMG_3813.JPG" alt="Still Life" />
         </div>
-        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas">
+        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas.">
+          <img src="images/IMG_3819.JPG" alt="Still Life" />
+        </div>
+        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas.">
           <img src="images/IMG_3820.JPG" alt="Still Life" />
         </div>
-        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas">
+        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas.">
           <img src="images/IMG_3822.JPG" alt="Still Life" />
         </div>
-        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas">
+        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas.">
           <img src="images/IMG_3815.JPG" alt="Still Life" />
         </div>
-        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas">
+        <div class="gallery-item" data-title="Still Life" data-caption="<em>Still Life</em>, 2024.<br>Oil on canvas.">
           <img src="images/IMG_3817.JPG" alt="Still Life" />
         </div>
       </div>
