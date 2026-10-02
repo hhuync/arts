@@ -2,381 +2,675 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Johnny Nguyen | Art Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Googlefonts-->
+
+  <title>Johnny Nguyen | Art Portfolio</title>
+  <meta name="description" content="Johnny Nguyen — painting, installation, and exhibition work.">
+  <meta property="og:title" content="Johnny Nguyen | Art Portfolio">
+  <meta property="og:description" content="Painting, installation, exhibition work, and selected studio practice.">
+  <meta property="og:image" content="https://hhuync.github.io/arts/images/tulips.jpg">
+  <meta property="og:url" content="https://hhuync.github.io/arts/">
+  <meta property="og:type" content="website">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="shortcut icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="manifest" href="site.webmanifest" />
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="Johnny Nguyen | Art Portfolio" />
-  <meta property="og:description" content="View my collection of paintings, studies, and experimental works." />
-  <meta property="og:image" content="https://hhuync.github.io/arts/images/tulips.jpg" />
-  <meta property="og:url" content="https://hhuync.github.io/arts/" />
-  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Roboto+Mono:wght@400;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Work Sans', sans-serif;
-      background: #fff;
-      color: #222;
-    }
-    .container {
-      display: flex;
-      min-height: 100vh;
-      box-sizing: border-box;
-    }
-    .sidebar {
-      width: 240px;
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      padding: 2.5em 1.2em 2em 2em;
-      box-sizing: border-box;
-    }
-    .sidebar-title {
-      font-family: 'Raleway', Arial, sans-serif;
-      font-weight: 600;
-      font-size: 1.5em;
-      letter-spacing: 2px;
-      margin-bottom: 1.3em;
-      color: #06498c;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .sidebar nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9em;
-    }
-    .sidebar nav a {
-      font-family: 'Work Sans', sans-serif;
-      font-size: 0.8em;
-      color: #444;
-      text-decoration: none;
-      padding: 0.15em 0.3em;
-      transition: color 0.18s;
-      border-radius: 3px;
-    }
-    .sidebar nav a:hover,
-    .sidebar nav a.active {
-      color: #1a5b9d;
-      background: none;
-    }
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
-    .main-content {
-      flex: 1;
-      padding: 4em 2em 2em 2em;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      box-sizing: border-box;
-    }
-    .artwork-row {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      max-width: 1050px;
-      margin: 0 auto;
-    }
-    .artwork-photo {
-  max-width: 600px;
-  width: 100%;
-  height: auto;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-  background: #faf9f6;
-  opacity: 1;
-  transition: opacity 1.2s ease-in-out;
-}
-
-.artwork-photo.fade-out {
-  opacity: 0;
-}
-    .caption-block {
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 1.3em;
-    }
-.featured-title {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #666;
-  margin: 0 0 2rem;
-  text-align: center;
-}
-    /* Artwork Caption */
-    .caption {
-  max-width: 320px;
-  color: #444;
-  font-size: 0.8em;
-  font-family: 'Work Sans', sans-serif;
-  opacity: 0.88;
-  text-align: right;
-  line-height: 1.5;
-  margin: 0;
-  padding-right: 8px;
-  transition: opacity 1.2s ease-in-out;
-}
-
-.caption.fade-out {
-  opacity: 0;
-}
-    .caption em {
-      font-style: italic;
-      color: #222;
-    }
-    .slideshow-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.7em;
-  margin-top: 1.2em;
-  margin-bottom: 1.2em;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: none;
-  background: #c7c7c7;
-  cursor: pointer;
-  padding: 0;
-}
-
-.dot.active {
-  background: #06498c;
-}
-    /* Hide mobile UI on desktop */
-    @media (min-width: 701px) {
-      .mobile-header,
-      .mobile-nav {
-        display: none;
-      }
-    }
-
-    /* Mobile styles */
-    @media (max-width: 700px) {
-      .sidebar {
-        display: none;
-      }
-      .mobile-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1em 1.2em;
-        background: white;
-        border-bottom: 1px solid #ddd;
-        font-family: 'Raleway', sans-serif;
-        font-size: 1.1em;
-        color: #06498c;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-      .mobile-title {
-        font-weight: 600;
-        letter-spacing: 1px;
-        color: #06498c;
-        text-decoration: none;
-}
-
-      }
-      .hamburger {
-        background: none;
-        border: none;
-        font-size: 1.6em;
-        cursor: pointer;
-        color: #222;
-      }
-
-      .mobile-nav {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.94);
-        padding-top: 0.8em;
-        text-align: center;
-        font-family: 'Work Sans', sans-serif;
-        font-size: 0.8em;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: opacity 0.25s ease, transform 0.25s ease;
-        pointer-events: none;
-        z-index: 999;
-      }
-      .mobile-nav.open {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-      }
-      .mobile-nav a {
-        display: block;
-        padding: 0.9em 0;
-        font-size: 1em;
-        color: #444;
-        text-decoration: none;
-      }
-      .mobile-nav a:hover,
-      .mobile-nav a.active {
-        color: #1a5b9d;
-      }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-  <!-- Mobile Header -->
-  <header class="mobile-header">
-    <a href="index.html" class="mobile-title">JOHNNY NGUYEN</a>
-    <button id="menuToggle" class="hamburger">&#9776;</button>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top">JOHNNY NGUYEN</a>
+
+    <button class="menu-toggle" id="menuToggle" type="button"
+            aria-label="Open navigation" aria-expanded="false" aria-controls="siteMenu">
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
-  <!-- Mobile Dropdown Menu -->
-  <nav id="mobileMenu" class="mobile-nav">
-    <a href="giveuptheghost.html">Give Up The Ghost - 2026</a>
-    <a href="2026works.html">2026 works</a>
-    <a href="2025works.html">2025 works</a>
-    <a href="2024works.html">2024 works</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+  <nav class="site-menu" id="siteMenu" aria-label="Portfolio navigation">
+    <button type="button" data-open-section="exhibition">Give Up The Ghost <span>↘</span></button>
+    <button type="button" data-open-section="works-2026">2026 Works <span>↘</span></button>
+    <button type="button" data-open-section="works-2025">2025 Works <span>↘</span></button>
+    <button type="button" data-open-section="works-2024">2024 Works <span>↘</span></button>
+    <button type="button" data-open-section="about">About <span>↘</span></button>
+    <button type="button" data-open-section="contact">Contact <span>↘</span></button>
+    <a href="https://hhuync.github.io/portfolio/" target="_blank" rel="noopener">
+      Data + Design <span>↗</span>
+    </a>
   </nav>
 
-  <!-- Main Layout -->
-  <div class="container">
-    <aside class="sidebar">
-      <a href="index.html" class="sidebar-title">JOHNNY<br>NGUYEN</a>
-      <nav>
-        <a href="giveuptheghost.html">Give Up The Ghost - 2026</a>
-        <a href="2026works.html">2026 works</a>
-        <a href="2025works.html">2025 works</a>
-        <a href="2024works.html">2024 works</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </aside>
-    <div class="main-content">
-      <div class="artwork-row">
-        <h2 class="featured-title">Featured Works</h2>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker">Selected Work</p>
+        <h1>Painting, installation, memory, and transformation.</h1>
+      </div>
 
-  <img id="slideshowImage" src="images/tulips.jpg" alt="Tulips, oil on canvas, 2024" class="artwork-photo">
-  <div id="slideshowDots" class="slideshow-dots"></div>
-  <div class="caption-block">
-    <figcaption id="slideshowCaption" class="caption">
-      <em>Tulips</em>, 2024.<br>
-      Oil on canvas, 18 x 20 inches.
-    </figcaption>
+      <div class="featured-layout">
+        <button class="featured-image-wrap" id="featuredOpen" type="button" aria-label="Open featured artwork">
+          <img id="featuredImage" src="images/tulips.jpg" alt="Tulips, oil on canvas, 2024">
+          <span class="image-action">View artwork ↗</span>
+        </button>
+
+        <div class="featured-meta">
+          <p class="featured-label">Featured Work</p>
+          <div id="featuredCaption" class="featured-caption"><em>Tulips</em>, 2024.<br>Oil on canvas, 18 x 20 inches.</div>
+          <div id="featuredDots" class="featured-dots" aria-label="Featured artwork selector"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="accordion-stack" aria-label="Portfolio sections">
+      
+      <section class="accordion-section" id="exhibition">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="exhibition-content">
+          <span class="accordion-heading">
+            <span class="kicker">Exhibition · 2026</span>
+            <span class="accordion-title">Give Up The Ghost</span>
+          </span>
+          <span class="accordion-chevron" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content" id="exhibition-content">
+          <div class="accordion-inner">
+            
+  <div class="section-lede">
+    <p>
+      The exhibition examined the process of releasing emotional attachments and rebuilding one's sense of self.
+    </p>
   </div>
-</div>
+
+  <a class="catalog-card" href="https://drive.google.com/file/d/1ItrdpTaOOGyUSvxbQP5LYJKwUJP2M6WJ/view?usp=sharing" target="_blank" rel="noopener">
+    <img src="images/catalog-cover.jpg" alt="Give Up The Ghost exhibition catalog cover" loading="lazy">
+    <div class="catalog-copy">
+      <span class="kicker">Exhibition Catalog</span>
+      <strong>View the full catalog</strong>
+      <span class="arrow">↗</span>
+    </div>
+  </a>
+
+  <div class="gallery exhibition-gallery">
+    
+          <button class="gallery-item"
+                  type="button"
+                  data-section="exhibition"
+                  data-title="Exhibition View"
+                  data-caption="&lt;em&gt;Exhibition View&lt;/em&gt;&lt;br&gt;"
+                  data-src="images/Trout2026 - Give Up The Ghost-5.jpg"
+                  aria-label="Open Exhibition View">
+            <img src="images/Trout2026 - Give Up The Ghost-5.jpg" alt="Exhibition View" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Exhibition View</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="exhibition"
+                  data-title="Exhibition View"
+                  data-caption="&lt;em&gt;Exhibition View&lt;/em&gt;&lt;br&gt;"
+                  data-src="images/Trout2026 - Give Up The Ghost-2.jpg"
+                  aria-label="Open Exhibition View">
+            <img src="images/Trout2026 - Give Up The Ghost-2.jpg" alt="Exhibition View" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Exhibition View</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="exhibition"
+                  data-title="with my family"
+                  data-caption="&lt;em&gt;with my family&lt;/em&gt;&lt;br&gt;"
+                  data-src="images/IMG_2098.JPG"
+                  aria-label="Open with my family">
+            <img src="images/IMG_2098.JPG" alt="with my family" loading="lazy">
+            <span class="gallery-overlay">
+              <span>with my family</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="exhibition"
+                  data-title="with my friends"
+                  data-caption="&lt;em&gt;with my friends&lt;/em&gt;&lt;br&gt;"
+                  data-src="images/IMG_1140.jpg"
+                  aria-label="Open with my friends">
+            <img src="images/IMG_1140.jpg" alt="with my friends" loading="lazy">
+            <span class="gallery-overlay">
+              <span>with my friends</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="exhibition"
+                  data-title="with my friends"
+                  data-caption="&lt;em&gt;with my friends&lt;/em&gt;&lt;br&gt;"
+                  data-src="images/IMG_1141.jpg"
+                  aria-label="Open with my friends">
+            <img src="images/IMG_1141.jpg" alt="with my friends" loading="lazy">
+            <span class="gallery-overlay">
+              <span>with my friends</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="exhibition"
+                  data-title="Work in progress: Entangled in What Let You Go"
+                  data-caption="&lt;em&gt;Work in progress: Entangled in What Let You Go&lt;/em&gt;, Acrylic on canvas, 40x40, 2026.&lt;br&gt;"
+                  data-src="images/IMG_9494.jpg"
+                  aria-label="Open Work in progress: Entangled in What Let You Go">
+            <img src="images/IMG_9494.jpg" alt="Work in progress: Entangled in What Let You Go" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Work in progress: Entangled in What Let You Go</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+  </div>
+
+          </div>
+        </div>
+      </section>
+    
+      
+      <section class="accordion-section" id="works-2026">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="works-2026-content">
+          <span class="accordion-heading">
+            <span class="kicker">Selected Works</span>
+            <span class="accordion-title">2026 Works</span>
+          </span>
+          <span class="accordion-chevron" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content" id="works-2026-content">
+          <div class="accordion-inner">
+            <div class="gallery">
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2026"
+                  data-title="Entangled in What Let You Go"
+                  data-caption="&lt;em&gt;Entangled in What Let You Go&lt;/em&gt;, Acrylic on canvas, 40 x 40, 2026.&lt;br&gt;&lt;br&gt;Currently displayed at the Waidner Spahr Library, Dickinson College, Carlisle, PA."
+                  data-src="images/Johnny Nguyen-1.jpg"
+                  aria-label="Open Entangled in What Let You Go">
+            <img src="images/Johnny Nguyen-1.jpg" alt="Entangled in What Let You Go" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Entangled in What Let You Go</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2026"
+                  data-title="I Lay Where I Was Left"
+                  data-caption="&lt;em&gt;I Lay Where I Was Left&lt;/em&gt;, Oil on canvas, 28 x 32, 2026.&lt;br&gt;"
+                  data-src="images/Johnny Nguyen-7.jpg"
+                  aria-label="Open I Lay Where I Was Left">
+            <img src="images/Johnny Nguyen-7.jpg" alt="I Lay Where I Was Left" loading="lazy">
+            <span class="gallery-overlay">
+              <span>I Lay Where I Was Left</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2026"
+                  data-title="Death Becomes I"
+                  data-caption="&lt;em&gt;Death Becomes I&lt;/em&gt;, Acrylic on canvas, 2026.&lt;br&gt;"
+                  data-src="images/IMG_3823.JPG"
+                  aria-label="Open Death Becomes I">
+            <img src="images/IMG_3823.JPG" alt="Death Becomes I" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Death Becomes I</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2026"
+                  data-title="The Bleeding Council"
+                  data-caption="&lt;em&gt;The Bleeding Council&lt;/em&gt;, Acrylic on canvas, 16 x 32, 2026.&lt;br&gt;"
+                  data-src="images/IMG_3827.JPG"
+                  aria-label="Open The Bleeding Council">
+            <img src="images/IMG_3827.JPG" alt="The Bleeding Council" loading="lazy">
+            <span class="gallery-overlay">
+              <span>The Bleeding Council</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2026"
+                  data-title="Reason Without Mercy"
+                  data-caption="&lt;em&gt;Reason Without Mercy&lt;/em&gt;, Acrylic on canvas, 16 x 32, 2026.&lt;br&gt;"
+                  data-src="images/IMG_3825.JPG"
+                  aria-label="Open Reason Without Mercy">
+            <img src="images/IMG_3825.JPG" alt="Reason Without Mercy" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Reason Without Mercy</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2026"
+                  data-title="Work in progress: Entangled in What Let You Go"
+                  data-caption="&lt;em&gt;Work in progress: Entangled in What Let You Go&lt;/em&gt;, Acrylic on canvas, 40 x 40, 2026.&lt;br&gt;"
+                  data-src="images/IMG_9494.jpg"
+                  aria-label="Open Work in progress: Entangled in What Let You Go">
+            <img src="images/IMG_9494.jpg" alt="Work in progress: Entangled in What Let You Go" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Work in progress: Entangled in What Let You Go</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        </div>
+          </div>
+        </div>
+      </section>
+    
+      
+      <section class="accordion-section" id="works-2025">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="works-2025-content">
+          <span class="accordion-heading">
+            <span class="kicker">Selected Works</span>
+            <span class="accordion-title">2025 Works</span>
+          </span>
+          <span class="accordion-chevron" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content" id="works-2025-content">
+          <div class="accordion-inner">
+            <div class="gallery">
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2025"
+                  data-title="No Rest Under Their Gaze"
+                  data-caption="&lt;em&gt;No Rest Under Their Gaze&lt;/em&gt;, Oil on canvas, 2025.&lt;br&gt;"
+                  data-src="images/IMG_7319.jpg"
+                  aria-label="Open No Rest Under Their Gaze">
+            <img src="images/IMG_7319.jpg" alt="No Rest Under Their Gaze" loading="lazy">
+            <span class="gallery-overlay">
+              <span>No Rest Under Their Gaze</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2025"
+                  data-title="Where I Do Not Belong"
+                  data-caption="&lt;em&gt;Where I Do Not Belong&lt;/em&gt;, Oil on canvas, 2025.&lt;br&gt;"
+                  data-src="images/IMG_4386.jpg"
+                  aria-label="Open Where I Do Not Belong">
+            <img src="images/IMG_4386.jpg" alt="Where I Do Not Belong" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Where I Do Not Belong</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2025"
+                  data-title="Back To Where I Belong"
+                  data-caption="&lt;em&gt;Back To Where I Belong&lt;/em&gt;, Oil on canvas, 2025.&lt;br&gt;"
+                  data-src="images/IMG_6984.jpg"
+                  aria-label="Open Back To Where I Belong">
+            <img src="images/IMG_6984.jpg" alt="Back To Where I Belong" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Back To Where I Belong</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2025"
+                  data-title="Studio view: The Shape Of What’s Left Unsaid"
+                  data-caption="&lt;em&gt;Studio view: The Shape Of What’s Left Unsaid&lt;/em&gt;, Oil on canvas, 2025.&lt;br&gt;"
+                  data-src="images/IMG_6450.jpg"
+                  aria-label="Open Studio view: The Shape Of What’s Left Unsaid">
+            <img src="images/IMG_6450.jpg" alt="Studio view: The Shape Of What’s Left Unsaid" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Studio view: The Shape Of What’s Left Unsaid</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2025"
+                  data-title="Studio view: Layers"
+                  data-caption="&lt;em&gt;Studio view: Layers&lt;/em&gt;, Oil on canvas, 2025.&lt;br&gt;"
+                  data-src="images/IMG_6539.jpg"
+                  aria-label="Open Studio view: Layers">
+            <img src="images/IMG_6539.jpg" alt="Studio view: Layers" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Studio view: Layers</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2025"
+                  data-title="Studio view: Cocktail"
+                  data-caption="&lt;em&gt;Studio view: Cocktail&lt;/em&gt;, Acrylic on canvas, 2025.&lt;br&gt;"
+                  data-src="images/Johnny Nguyen-31.jpg"
+                  aria-label="Open Studio view: Cocktail">
+            <img src="images/Johnny Nguyen-31.jpg" alt="Studio view: Cocktail" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Studio view: Cocktail</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2025"
+                  data-title="Studio view: Dreams Aren&#x27;t Supposed To Crush Me"
+                  data-caption="&lt;em&gt;Studio view: Dreams Aren&#x27;t Supposed To Crush Me&lt;/em&gt;, Acrylic on canvas, 2025.&lt;br&gt;"
+                  data-src="images/Johnny Nguyen-10.jpg"
+                  aria-label="Open Studio view: Dreams Aren&#x27;t Supposed To Crush Me">
+            <img src="images/Johnny Nguyen-10.jpg" alt="Studio view: Dreams Aren&#x27;t Supposed To Crush Me" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Studio view: Dreams Aren&#x27;t Supposed To Crush Me</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2025"
+                  data-title="Morgan Field"
+                  data-caption="&lt;em&gt;Morgan Field&lt;/em&gt;, Oil on canvas, 2025.&lt;br&gt;"
+                  data-src="images/IMG_3818.JPG"
+                  aria-label="Open Morgan Field">
+            <img src="images/IMG_3818.JPG" alt="Morgan Field" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Morgan Field</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        </div>
+          </div>
+        </div>
+      </section>
+    
+      
+      <section class="accordion-section" id="works-2024">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="works-2024-content">
+          <span class="accordion-heading">
+            <span class="kicker">Selected Works</span>
+            <span class="accordion-title">2024 Works</span>
+          </span>
+          <span class="accordion-chevron" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content" id="works-2024-content">
+          <div class="accordion-inner">
+            <div class="gallery">
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2024"
+                  data-title="Tulips"
+                  data-caption="&lt;em&gt;Tulips&lt;/em&gt;, 2024.&lt;br&gt;Oil on canvas, 18 x 20 inches."
+                  data-src="images/tulips.jpg"
+                  aria-label="Open Tulips">
+            <img src="images/tulips.jpg" alt="Tulips" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Tulips</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2024"
+                  data-title="Memento Mori"
+                  data-caption="&lt;em&gt;Memento Mori&lt;/em&gt;, 2024.&lt;br&gt;Pastel on paper, 18 x 24 inches."
+                  data-src="images/memento.jpg"
+                  aria-label="Open Memento Mori">
+            <img src="images/memento.jpg" alt="Memento Mori" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Memento Mori</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2024"
+                  data-title="Still Life"
+                  data-caption="&lt;em&gt;Still Life&lt;/em&gt;, 2024.&lt;br&gt;Oil on canvas."
+                  data-src="images/IMG_3813.JPG"
+                  aria-label="Open Still Life">
+            <img src="images/IMG_3813.JPG" alt="Still Life" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Still Life</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2024"
+                  data-title="Still Life"
+                  data-caption="&lt;em&gt;Still Life&lt;/em&gt;, 2024.&lt;br&gt;Oil on canvas."
+                  data-src="images/IMG_3819.JPG"
+                  aria-label="Open Still Life">
+            <img src="images/IMG_3819.JPG" alt="Still Life" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Still Life</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2024"
+                  data-title="Still Life"
+                  data-caption="&lt;em&gt;Still Life&lt;/em&gt;, 2024.&lt;br&gt;Oil on canvas."
+                  data-src="images/IMG_3820.JPG"
+                  aria-label="Open Still Life">
+            <img src="images/IMG_3820.JPG" alt="Still Life" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Still Life</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2024"
+                  data-title="Still Life"
+                  data-caption="&lt;em&gt;Still Life&lt;/em&gt;, 2024.&lt;br&gt;Oil on canvas."
+                  data-src="images/IMG_3822.JPG"
+                  aria-label="Open Still Life">
+            <img src="images/IMG_3822.JPG" alt="Still Life" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Still Life</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2024"
+                  data-title="Still Life"
+                  data-caption="&lt;em&gt;Still Life&lt;/em&gt;, 2024.&lt;br&gt;Oil on canvas."
+                  data-src="images/IMG_3815.JPG"
+                  aria-label="Open Still Life">
+            <img src="images/IMG_3815.JPG" alt="Still Life" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Still Life</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        
+
+          <button class="gallery-item"
+                  type="button"
+                  data-section="2024"
+                  data-title="Still Life"
+                  data-caption="&lt;em&gt;Still Life&lt;/em&gt;, 2024.&lt;br&gt;Oil on canvas."
+                  data-src="images/IMG_3817.JPG"
+                  aria-label="Open Still Life">
+            <img src="images/IMG_3817.JPG" alt="Still Life" loading="lazy">
+            <span class="gallery-overlay">
+              <span>Still Life</span>
+              <span class="view-label">View ↗</span>
+            </span>
+          </button>
+        </div>
+          </div>
+        </div>
+      </section>
+    
+      
+      <section class="accordion-section" id="about">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="about-content">
+          <span class="accordion-heading">
+            <span class="kicker">Artist Bio</span>
+            <span class="accordion-title">About</span>
+          </span>
+          <span class="accordion-chevron" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content" id="about-content">
+          <div class="accordion-inner">
+            
+  <div class="about-layout">
+    <img src="images/IMG_2824.jpg" alt="Johnny Nguyen" class="about-photo" loading="lazy">
+    <div class="about-text">
+      <p>
+      Johnny Nguyen is a Vietnamese artist and data analyst based in New York. Working primarily in painting and installation, his practice explores memory, identity, vulnerability, and transformation through emotionally driven imagery.
+      <br/><br/>
+      His recent exhibition, <em>Give Up The Ghost</em> (2026), examined the process of releasing emotional attachments and rebuilding one's sense of self. Blending symbolic narratives with intimate visual language, his work invites viewers to reflect on the experiences that shape who they become.
+      <br/><br/>
+      Alongside his artistic practice, Johnny earned dual bachelor's degrees in Studio Art and Data Analytics from Dickinson College. His background bridges creativity and technology, combining visual storytelling with analytical thinking. Whether developing business intelligence solutions or creating paintings, he is drawn to finding clarity within complexity and transforming information into meaningful experiences.
+    </p>
+      <a class="inline-link" href="https://hhuync.github.io/portfolio/" target="_blank" rel="noopener">
+        Visit my Data + Design portfolio ↗
+      </a>
     </div>
   </div>
 
-  <!-- Script -->
+          </div>
+        </div>
+      </section>
+    
+      
+      <section class="accordion-section" id="contact">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="contact-content">
+          <span class="accordion-heading">
+            <span class="kicker">Get In Touch</span>
+            <span class="accordion-title">Contact</span>
+          </span>
+          <span class="accordion-chevron" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content" id="contact-content">
+          <div class="accordion-inner">
+            
+  <div class="section-lede">
+    <p>For exhibitions, collaborations, or other inquiries.</p>
+  </div>
+
+  <form id="contactForm" class="contact-form" action="https://formspree.io/f/xqabawko" method="POST">
+    <div class="form-row">
+      <label>
+        <span>First name</span>
+        <input type="text" name="first" placeholder="First" autocomplete="given-name" required>
+      </label>
+
+      <label>
+        <span>Last name</span>
+        <input type="text" name="last" placeholder="Last" autocomplete="family-name" required>
+      </label>
+    </div>
+
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+    </label>
+
+    <label>
+      <span>Message</span>
+      <textarea name="comment" rows="7" placeholder="Type your message here..." required></textarea>
+    </label>
+
+    <button class="submit-button" type="submit">Send message →</button>
+    <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+  </form>
+
+          </div>
+        </div>
+      </section>
+    
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Johnny Nguyen</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lightboxClose" class="lightbox-close" type="button" aria-label="Close artwork viewer">×</button>
+    <button id="lightboxPrev" class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous artwork">‹</button>
+
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
+    <button id="lightboxNext" class="lightbox-arrow lightbox-next" type="button" aria-label="Next artwork">›</button>
+  </div>
+
   <script>
-  const toggleBtn = document.getElementById('menuToggle');
-  const mobileNav = document.getElementById('mobileMenu');
-
-  toggleBtn.addEventListener('click', () => {
-    const isOpen = mobileNav.classList.contains('open');
-    mobileNav.classList.toggle('open');
-    toggleBtn.innerHTML = isOpen ? '&#9776;' : '&times;';
-  });
-
-  const artworks = [
-    {
-      src: 'images/tulips.jpg',
-      alt: 'Tulips, oil on canvas, 2024',
-      caption: '<em>Tulips</em>, 2024.<br>Oil on canvas, 18 x 20 inches.'
-    },
-    {
-      src: 'images/Johnny Nguyen-1.jpg',
-      alt: 'Entangled in What Let You Go, 2026',
-      caption: '<em>Entangled in What Let You Go</em>, 2026.<br>Acrylic on canvas, 40 x 40 inches.<br>Currently displayed at the Waidner Spahr Library, Dickinson College, Carlisle, PA.'
-    },
-    {
-      src: 'images/IMG_7319.jpg',
-      alt: 'No Rest Under Their Gaze, 2025',
-      caption: '<em>No Rest Under Their Gaze</em>, 2025.<br>Oil on canvas.'
-    }
-  ];
-
-  artworks.forEach(art => {
-  const img = new Image();
-  img.src = art.src;
-});
-  let currentArtwork = 0;
-
-  const slideshowImage = document.getElementById('slideshowImage');
-  const slideshowCaption = document.getElementById('slideshowCaption');
-
-const slideshowDots = document.getElementById('slideshowDots');
-let slideshowInterval;
-
-artworks.forEach((art, index) => {
-  const dot = document.createElement('button');
-  dot.classList.add('dot');
-
-  if (index === 0) {
-    dot.classList.add('active');
-  }
-
-  dot.addEventListener('click', () => {
-    goToArtwork(index);
-    resetSlideshow();
-  });
-
-  slideshowDots.appendChild(dot);
-});
-
-function updateDots() {
-  const dots = document.querySelectorAll('.dot');
-
-  dots.forEach((dot, index) => {
-    dot.classList.toggle('active', index === currentArtwork);
-  });
-}
-
-function goToArtwork(index) {
-  slideshowImage.classList.add("fade-out");
-  slideshowCaption.classList.add("fade-out");
-
-  setTimeout(() => {
-    currentArtwork = index;
-
-    slideshowImage.src = artworks[currentArtwork].src;
-    slideshowImage.alt = artworks[currentArtwork].alt;
-    slideshowCaption.innerHTML = artworks[currentArtwork].caption;
-
-    updateDots();
-
-    slideshowImage.classList.remove("fade-out");
-    slideshowCaption.classList.remove("fade-out");
-  }, 1200);
-}
-
-function nextArtwork() {
-  const nextIndex = (currentArtwork + 1) % artworks.length;
-  goToArtwork(nextIndex);
-}
-
-function resetSlideshow() {
-  clearInterval(slideshowInterval);
-  slideshowInterval = setInterval(nextArtwork, 8000);
-}
-
-slideshowInterval = setInterval(nextArtwork, 8000);
-</script>
-
+    window.FEATURED_ARTWORKS = [{"src": "images/tulips.jpg", "alt": "Tulips, oil on canvas, 2024", "caption": "<em>Tulips</em>, 2024.<br>Oil on canvas, 18 x 20 inches."}, {"src": "images/Johnny Nguyen-1.jpg", "alt": "Entangled in What Let You Go, 2026", "caption": "<em>Entangled in What Let You Go</em>, 2026.<br>Acrylic on canvas, 40 x 40 inches.<br>Currently displayed at the Waidner Spahr Library, Dickinson College, Carlisle, PA."}, {"src": "images/IMG_7319.jpg", "alt": "No Rest Under Their Gaze, 2025", "caption": "<em>No Rest Under Their Gaze</em>, 2025.<br>Oil on canvas."}];
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
